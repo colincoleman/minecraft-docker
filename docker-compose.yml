@@ -1,0 +1,6 @@
+wed_minecraft:
+  image: minecraft-docker:latest
+  restart: always
+  ports:
+   - "25565:25565"
+
