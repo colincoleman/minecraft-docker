@@ -13,7 +13,7 @@ ADD https://launchermeta.mojang.com/mc/game/version_manifest.json /home/minecraf
 RUN LATESTVER=`cat /home/minecraft/version_manifest.json|jq -r .latest.release` &&\
   wget  -O /home/minecraft/versionfile.json `cat /home/minecraft/version_manifest.json | jq -r ".versions[] | select(.id==\"$LATESTVER\")|.url"` &&\
   DOWNLOADURL=`cat /home/minecraft/versionfile.json |jq -r '.downloads.server.url'` &&\
-  wget $DOWNLOADURL &&\
+  wget -O /home/minecraft/server.jar $DOWNLOADURL &&\
   echo "done"
 
 ENTRYPOINT ["/home/minecraft/entrypoint.sh"]
