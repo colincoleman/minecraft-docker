@@ -3,4 +3,5 @@ wed_minecraft:
   restart: always
   ports:
    - "25565:25565"
-
+  volumes:
+    - ./minecraft-data:/home/minecraft/data
