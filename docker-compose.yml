@@ -2,9 +2,9 @@ minecraft:
   image: colincoleman/minecraft-docker:latest
   restart: always
   ports:
-   - "25565:25565"
+    - "25565:25565"
   volumes:
-    - ./minecraft-data:/home/minecraft/data
+    - ./data:/home/minecraft/data
   environment:
     - EULA=true
-    - JAVAPARAMS='-Xmx4G -Xms4G -Dsun.rmi.dgc.server.gcInterval=2147483646 -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M'
+    - JAVAPARAMS=-Xmx4G -Xms4G
