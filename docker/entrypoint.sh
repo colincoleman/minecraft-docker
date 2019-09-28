@@ -4,7 +4,7 @@ then
     echo "eula=$EULA" > /home/minecraft/data/eula.txt
 fi
 cd /home/minecraft/data
-if [ -ne $JAVAPARAMS ]
+if [ -ne "$JAVAPARAMS" ]
 then
     JAVAPARAMS='-Xmx1024M -Xms1024M'
 fi
