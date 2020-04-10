@@ -23,7 +23,7 @@ This also give you easy access to the items in the data folder to allow you to d
 
 ### Using Docker Compose
 Instead of remembering and typing long chains of parameters and docker options you can create a docker-compose.yml file
-(example [here](docker-compose.yml)) file 
+(example [here](docker-compose.yml))
 and simply run the command `docker-compose up` to bring up the server with a specified data folder and then use the
 command `docker-compose down` to stop and get rid of the container.  Later when you wish to restart the server you can 
 run `docker-compose up` again and the world persisted on your local volume will be attached to a new container running a
