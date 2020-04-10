@@ -18,7 +18,7 @@ RUN apt-get update && \
       wget && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /home/minecraft/data && \
-    chown minecraft:minecraft /home/minecraft/data &&
+    chown minecraft:minecraft /home/minecraft/data
 
 USER minecraft
 
