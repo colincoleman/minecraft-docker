@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk16:debianslim-jre
+FROM openjdk:17.0.1-slim-buster
 MAINTAINER colincoleman
 
 RUN useradd -r -u 200 -m -c "minecraft account" -d /home/minecraft -s /bin/false minecraft
