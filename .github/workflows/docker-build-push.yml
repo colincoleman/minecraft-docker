@@ -38,11 +38,14 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.IMAGE_NAME }}
+          # semver rules only fire on an actual `refs/tags/vX` push; a manual
+          # workflow_dispatch run (ref = a branch) needs its own raw rule so
+          # the typed-in version still ends up as a Docker Hub tag.
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=raw,value=latest,enable={{is_default_branch}}
-          # metadata-action also tags `latest` for the highest semver tag.
+            type=raw,value=${{ github.event.inputs.minecraft_version }},enable=${{ github.event_name == 'workflow_dispatch' && github.event.inputs.minecraft_version != 'latest' }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
