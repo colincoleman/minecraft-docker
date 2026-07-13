@@ -1,5 +1,11 @@
 # minecraft-docker
-This docker image provides a size optimized vanilla Minecraft server
+This docker image provides a size optimized vanilla Minecraft server.
+
+By default the image installs the **latest** Minecraft release at build time. To pin
+a specific version, build with `--build-arg MINECRAFT_VERSION=26.2`.
+
+Images are built and pushed to Docker Hub automatically by GitHub Actions when a
+version tag is pushed, e.g. `git tag v26.2 && git push origin v26.2`.
 
 ### Quickstart
 ```
@@ -9,10 +15,10 @@ docker run -d -p 25565:25565 -e EULA=true colincoleman/minecraft-docker:latest
 ### Parameters
 #### EULA
 To accept the Minecraft EULA (and have the server actually start) pass in the parameter EULA and set it to true `-e EULA=true`
-#### JAVAOPTIONS
+#### JAVAPARAMS
 By default the server runs with `-Xmx1024M -Xms1024M` as suggested on the Minecraft Server instrutctions.
 If you want to run a bigger server (or are a JVM Ninja with special experimental options skills) pass in
-the parameter JAVAOPTIONS e.g `-e JAVAOPTIONS='-Xmx2G -Xms2G'`
+the parameter JAVAPARAMS e.g `-e JAVAPARAMS='-Xmx2G -Xms2G'`
 
 ### Persisting your world
 By default the server's data folder is stored inside the container and will only last as long as the container.
