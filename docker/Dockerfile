@@ -1,4 +1,7 @@
-FROM amazoncorretto:21-alpine
+# Base Java version must be >= the Minecraft server's required JRE. Check via:
+#   curl -s <version manifest url for the target id> | jq .javaVersion.majorVersion
+# Current `latest` (26.2) needs Java 25; bump this if a future MC release needs more.
+FROM amazoncorretto:25-alpine
 LABEL org.opencontainers.image.authors="colincoleman"
 
 RUN addgroup minecraft && adduser -h /home/minecraft -u 200 -s /bin/false -G minecraft -S minecraft
